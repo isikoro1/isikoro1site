@@ -41,7 +41,7 @@ section {
 .btn {
     padding: 14px 18px;
     border-width: 2px;
-    border-radius: 4;
+    border-radius: 5;
 }
 
 .hero {
@@ -68,7 +68,7 @@ section {
     box-shadow: var(--box-shadow);
     background-color: #fff;
     padding: 25px;
-    transition: all 0.40s ease;
+    transition: all 0.20s ease;
 }
 
 .card-effect:hover {
@@ -87,6 +87,7 @@ section {
     background-color: var(--primary);
     border-radius: 100px;
     flex: none;
+    margin: 0 auto;
 }
 
 .service {
@@ -109,7 +110,7 @@ section {
 
 .service:hover h5,
 .service:hover p {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .service:hover .iconbox {
@@ -123,7 +124,7 @@ section {
 }
 
 .col-img {
-    background-image: url(./img/cover2.jpg);
+    background-image: url(./img/124.jpg);
     background-position: center;
     background-size: cover;
     min-height: 500px;
@@ -211,8 +212,8 @@ form .form-control {
 /* footer section */
 .footer-top {
     background-color: var(--dark);
-    padding: 90px;
-    padding-bottom: 90px;
+    padding: 60px;
+    padding-bottom: 50px;
 }
 
 .footer-top a {
