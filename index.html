@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
           
 
-    <title>m.otake</title>
+    <title>石ころサイト</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-dark py-3">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <h2 class="text-white pt-1">m.otake</h2>
+                <h2 class="text-white pt-1">石ころサイト</h2>
             </a>
             <button 
                 class="navbar-toggler" 
@@ -39,6 +39,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="#Profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#Application">Application</a>
                     </li>
                     <li class="nav-item">
@@ -48,8 +51,14 @@
                         <a class="nav-link" href="https://github.com/isikoro1" target="_blank">Github</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://qiita.com/isikoro2345" target="_blank">Blog</a>
+                        <a class="nav-link" href="https://qiita.com/isikoro2345" target="_blank">Qiita link</a>
                     </li>
+                    <div class="social-icons ">
+                            <!-- <a href="#"><i class="bx bxl-facebook"></i></a> -->
+                            <a href="https://x.com/mot1173137" target="_blank"><i class="bx bxl-twitter"></i></a>
+                            <!-- <a href="#"><i class="bx bxl-instagram-alt"></i></a> -->
+                        </div>
+                    <li class="nav-item">
                     <!-- <button class="btn btn-primary ms-2">Join Us</button> -->
                     
                 </ul>
@@ -63,21 +72,95 @@
 
     <!-- hero section -->
     <div class="hero vh-100 d-flex align-items-center" id="home"
-    style="background-image: url('img/uchu.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 mx-auto text-center">
-                <h1 class="display-4 text-white">m.otake</h1>
-                <p class="text-white my-3">作った物やプロフィールなどを紹介しています。
-                </p>
-                <a href="#Application" class="btn btn-primary me-2">Go Page</a>
-                <!-- <a href="#" class="btn btn-outline-light">Contact</a> -->
+        style="background-image: url('img/uchu.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mx-auto text-center">
+                    <h1 class="display-4 text-white">石ころポートフォリオ</h1>
+                    <p class="text-white my-3">作った物やプロフィールなどを紹介しています。
+                    </p>
+                    <a href="#Application" class="btn btn-primary me-2">Go Page</a>
+                    <!-- <a href="#" class="btn btn-outline-light">Contact</a> -->
+                </div>
             </div>
         </div>
     </div>
-    </div>
 
-        <!-- Projects section -->
+    <!-- Profile section -->
+    <section id="Profile" class="row py-0 bg-light">
+        <div class="col-lg-6 col-img"></div>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-md-10 pt-4 offset-md-1">
+                    <h6 class="text-primary"></h6>
+                    <h1>Profile</h1>
+                    <p>
+                        フロントエンド～バックエンドを勉強中です。
+                    </p>
+                    <div class="feature d-flex mt-5">
+                        <div>
+                            <h5>名前の由来</h5>
+                            <p>
+                                響き的になんとなくつけました。石の上にも三年的な？
+                                堅実に技術を磨いていきたいです！
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="feature d-flex mt-5">
+                        <div>
+                            <h5>セールスポイント</h5>
+                            <p>
+                                開発企業未経験ですが、HP改修など実務経験はある伸びしろのある「未経験者」です！
+                            </p>
+                        </div>
+                    </div>
+           
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-md-10 pt-4 offset-md-1">
+                    <h6 class="text-primary"></h6>
+                    <h1>About Me</h1>
+                    <!-- <p>
+                        フロントエンド～バックエンドを勉強中です。
+                    </p> -->
+                    <div class="feature d-flex mt-4">
+                        <div>
+                            <h5>前職</h5>
+                            <p>
+                                自社のWebページのコーディングを一部担当した経験があり、自己開発を通じて
+                                より本格的な開発に興味を持つようになりました。
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <div class="feature d-flex mt-4">
+                        <div>
+                            <h5>現在</h5>
+                            <p>
+                                ReactとTypeScriptを用いて実務に近い形のWebアプリケーション開発に取り組んでいます。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature d-flex mt-4">
+                        <div>
+                            <h5>ポートフォリオ紹介</h5>
+                            <p>
+                                未経験ながらも「手を動かしながら技術を身につけ、実践で成長できるエンジニア」を目指して、継続的にポートフォリオとスキルアップに取り組んでいます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-img2"></div>
+    </section>
+
+
+    <!-- Projects section -->
     <section id="Application">
         <div class="container-fluid">
             <div class="row">
@@ -195,11 +278,15 @@
                 <div class="col-lg-4 col-sm-6">
                     <a href="" target="_blank" style="text-decoration: none; color: inherit;">
                     <div class="service card-effect">
+                        <img src="./img/Gamblegame.jpg" alt="">
                         <div class="iconbox">
                             <i class="bx bx-joystick-button" ></i>
                         </div>
-                        <h5 class="mt-4 mb-2">準備中</h5>
-                        <p></p>
+                        <h5 class="mt-4 mb-2">スロット風ギャンブルゲーム</h5>
+                        <p>私が初めてPythonで作ったアプリをGUIをつけてアレンジしました。</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
+                            詳細を見る
+                        </button>
                     </div>
                     </a>
                 </div>
@@ -271,14 +358,14 @@
                         <h5 class="mb-0 mt-4">React</h5>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 text-center">
+                <!-- <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
                         <div class="iconbox">
                             <i class="bx devicon-nodejs-plain-wordmark" ></i>
                         </div>
                         <h5 class="mb-0 mt-4">Node.js</h5>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
                         <div class="iconbox">
@@ -287,14 +374,14 @@
                         <h5 class="mb-0 mt-4">Python</h5>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 text-center">
+                <!-- <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
                         <div class="iconbox">
                             <i class="bx devicon-unity-plain" ></i>
                         </div>
                         <h5 class="mb-0 mt-4">Unity</h5>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
                         <div class="iconbox">
@@ -303,27 +390,27 @@
                         <h5 class="mb-0 mt-4">Git</h5>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 text-center">
+                <!-- <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
                         <div class="iconbox">
                             <i class="bx devicon-bootstrap-plain" ></i>
                         </div>
                         <h5 class="mb-0 mt-4">Bootstrap</h5>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 text-center">
+                </div> -->
+                <!-- <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
                         <div class="iconbox">
                             <i class="bx devicon-jquery-plain" ></i>
                         </div>
                         <h5 class="mb-0 mt-4">jQuery</h5>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- <div class="col-lg-3 col-sm-6 text-center">
                     <div class="team-member card-effect">
-                        <img src="./img/team4.jpg" alt=""/>
-                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <img src="./img/124.jpg" alt=""/>
+                        <h5 class="mb-0 mt-4">test</h5>
                         <p>Web Developer</p>
                         <div class="social-icons">
                             <a href="#"><i class="bx bxl-facebook"></i></a>
@@ -336,59 +423,52 @@
         </div>
     </section>
 
-        <!-- Futures section -->
-    <!-- <section class="row py-0 bg-light">
-        <div class="col-lg-6 col-img"></div>
-        <div class="col-lg-6">
+   
+    <!-- Contact section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
             <div class="row">
-                <div class="col-md-10 pt-4 offset-md-1">
-                    <h6 class="text-primary"></h6>
-                    <h1>Profile</h1>
-                    <p>
-                        現在、ITエンジニアとして就職活動中です。
-                    </p>
-                    <div class="feature d-flex mt-5">
-                        <div class="iconbox me-3">
-                            <i class="bx bxs-comment-detail"></i>
-                        </div>
-                        <div>
-                            <h5>経歴</h5>
-                            <p>
-                                大学卒業→コンビニ店長→上京するため貯金も兼ねて短期の仕事などを転々→ITベンチャーに見習い→ボードゲームの開発・HPのコーダーとして入社→
-                            </p>
-                            <p>
-                                大学卒業→コンビニ店長→上京するため貯金も兼ねて短期の仕事などを転々→ITベンチャーに見習い→ボードゲームの開発・HPのコーダーとして入社→
-                            </p>
-                        </div>
-                    </div>
-                    <div class="feature d-flex mt-5">
-                        <div class="iconbox me-3">
-                            <i class="bx bxs-comment-detail"></i>
-                        </div>
-                        <div>
-                            <h5>Create</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum!
-                            </p>
-                        </div>
-                    </div>
-                    <div class="feature d-flex mt-5">
-                        <div class="iconbox me-3">
-                            <i class="bx bxs-comment-detail"></i>
-                        </div>
-                        <div>
-                            <h5>Create</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rerum!
-                            </p>
-                        </div>
-                    </div>
+                <div class="col-md-8 mx-auto text-center">
+                    <h1>Contact</h1>
+                    <h5>現在、エンジニアとして就職活動中です。</h5>
+                    <h6>お仕事のご連絡・ご相談は
+                        <a class="text-primary" 
+                            href="https://x.com/mot1173137" target="_blank">
+                            X(Twitter)のアカウントDM
+                        </a>
+                        まで
+                    </h6>
                 </div>
             </div>
-        </div>
-    </section> -->
 
-    <!-- Blog section -->
+            <!-- <form action="" class="row g-3 justify-content-center">
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="E-mail">
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Subject">
+                </div>
+                 <div class="col-md-10">
+                    <textarea
+                    name="" 
+                    id="" 
+                    cols="30" 
+                    rows="5" 
+                    class="form-control" 
+                    placeholder="Message"
+                    ></textarea>
+                </div>
+                <div class="col-md-10 d-grid">
+                    <button class="btn btn-primary">Contact</button>
+                </div>
+            </form> -->
+        </div>
+    </section>
+
+ <!-- Blog section -->
     <!-- <section id="blog" class="bg-light">
         <div class="container">
             <div class="row">
@@ -404,9 +484,9 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="blog-card card-effect">
-                        <img src="./img/blog1.jpg" alt="">
+                        <img src="./img/Gamblegame.jpg" alt="">
                         <h5 class="mb-0 mt-4">
-                            <a href="#">Designing smart and slick Bootstrap 5 Websit</a>
+                            <a href="#">ギャンブルゲーム</a>
                         </h5>
                         <p>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, fugiat.
@@ -415,7 +495,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="blog-card card-effect">
-                        <img src="./img/blog2.jpg" alt="">
+                        <img src="./img/ballgame.png" alt="">
                         <h5 class="mb-0 mt-4">
                             <a href="#">Designing smart and slick Bootstrap 5 Websit</a>
                         </h5>
@@ -428,50 +508,14 @@
         </div>
     </section> -->
 
-    <!-- Contact section -->
-    <!-- <section id="contact" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto text-center">
-                    <h6 class="text-primary">Contact</h6>
-                    <h1>Contact</h1>
-                </div>
-            </div>
-
-            <form action="" class="row g-3 justify-content-center">
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Name">
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="E-mail">
-                </div>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Subject">
-                </div>
-                <div class="col-md-10">
-                    <textarea
-                    name="" 
-                    id="" 
-                    cols="30" 
-                    rows="5" 
-                    class="form-control" 
-                    placeholder="Message"
-                    ></textarea>
-                </div>
-                <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">Contact</button>
-                </div>
-            </form>
-        </div>
-    </section> -->
 
     <!-- footer section -->
-     <footer>
+    <footer>
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <a href="#"><h2 class="text-white">isikoro1</h2></a>
+                        <a href="#"><h2 class="text-white">石ころサイト</h2></a>
                     </div>
                     <div class="col-md-2">
                         <ul class="list-unstyled">
@@ -480,6 +524,7 @@
                     </div>
                     <div class="col-md-2">
                         <ul class="list-unstyled">
+                            <li><a href="#Profile">Profile</a></li>
                             <li><a href="#Application">Application</a></li>
                             <li><a href="#Skills">Skills</a></li>
                         </ul>
@@ -498,7 +543,7 @@
                 </div>
             </div>
         </div>
-     </footer>
+    </footer>
 
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
