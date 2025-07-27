@@ -128,13 +128,20 @@ section {
     background-position: center;
     background-size: cover;
     min-height: 500px;
+    position: relative;
+    background-attachment: fixed;
+
 }
 
 .col-img2 {
-    background-image: url(./img/space2.jpg);
+    background-image: url(./img/space.gif);
     background-position: center;
     background-size: cover;
     min-height: 500px;
+    /* position: relative; */
+    background-attachment: fixed;
+
+
 }
 
 /* projects section */
