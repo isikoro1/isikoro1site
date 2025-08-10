@@ -145,7 +145,7 @@ section {
 }
 
 .blog-card {
-    height: 450px; /* 必要に応じて調整 */
+    height: 520px; /* 必要に応じて調整 */
     display: flex;
     flex-direction: column;
     padding: 20px;
