@@ -60,7 +60,7 @@ section {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(37, 39, 70, 0.6);
+    background-color: rgba(37, 39, 70, 0);
     z-index: -1;
 }
 
@@ -129,17 +129,17 @@ section {
     background-size: cover;
     min-height: 500px;
     position: relative;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 
 }
 
 .col-img2 {
-    background-image: url(./img/space.gif);
+    background-image: url(./img/isikoro2.jpg);
     background-position: center;
     background-size: cover;
     min-height: 500px;
     /* position: relative; */
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 
 
 }
