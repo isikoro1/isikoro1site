@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goods Lock!!</title>
+  <style>
+    :root {
+      --bg1: #0f172a;
+      --bg2: #1e293b;
+      --panel: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --sub: #cbd5e1;
+      --danger: #ef4444;
+      --safe: #22c55e;
+      --accent: #facc15;
+    }* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, #334155 0%, transparent 35%),
+    linear-gradient(180deg, var(--bg2), var(--bg1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.app {
+  width: min(720px, 100%);
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  text-align: center;
+}
+
+.desc {
+  margin: 0 0 24px;
+  color: var(--sub);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.status {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+.status.locked {
+  color: #fecaca;
+}
+
+.status.unlocked {
+  color: #bbf7d0;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+button {
+  border: 0;
+  border-radius: 18px;
+  padding: 18px 16px;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease, opacity 0.12s ease;
+  color: white;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.lock-btn {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.35);
+}
+
+.end-btn {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+}
+
+.hint {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--sub);
+  font-size: 14px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(127, 29, 29, 0.24);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.goods-lock-text {
+  font-size: clamp(42px, 10vw, 110px);
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.5),
+    0 0 28px rgba(250, 204, 21, 0.8),
+    0 0 50px rgba(239, 68, 68, 0.9),
+    0 10px 30px rgba(0,0,0,0.45);
+  transform: scale(0.2) rotate(-8deg);
+  opacity: 0;
+}
+
+.overlay.active .goods-lock-text {
+  animation: burstIn 0.45s cubic-bezier(.18,1.5,.42,1) forwards, pulse 1.2s ease-in-out 0.5s infinite;
+}
+
+@keyframes burstIn {
+  0% {
+    transform: scale(0.2) rotate(-12deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.18) rotate(3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@media (max-width: 560px) {
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>Goods Lock Reminder</h1>
+    <p class="desc">
+      スボミーの攻撃を受けたら「グッズロック開始」を押す。<br />
+      自分のターンが終わるまで、画面に大きく表示し続けます。
+    </p><div id="status" class="status unlocked">現在：解除中</div>
+
+<div class="buttons">
+  <button id="lockBtn" class="lock-btn">グッズロック開始</button>
+  <button id="endBtn" class="end-btn">ターンエンド</button>
+</div>
+
+<div class="hint">ショートカット: L でロック開始 / E でターンエンド</div>
+
+  </main>  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="goods-lock-text">Goods Lock!!</div>
+  </div>  <script>
+    const lockBtn = document.getElementById('lockBtn');
+    const endBtn = document.getElementById('endBtn');
+    const overlay = document.getElementById('overlay');
+    const statusText = document.getElementById('status');
+
+    let isLocked = false;
+
+    function startLock() {
+      isLocked = true;
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      statusText.textContent = '現在：グッズロック中';
+      statusText.classList.remove('unlocked');
+      statusText.classList.add('locked');
+    }
+
+    function endTurn() {
+      isLocked = false;
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      statusText.textContent = '現在：解除中';
+      statusText.classList.remove('locked');
+      statusText.classList.add('unlocked');
+    }
+
+    lockBtn.addEventListener('click', startLock);
+    endBtn.addEventListener('click', endTurn);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.repeat) return;
+      const key = event.key.toLowerCase();
+
+      if (key === 'l') {
+        startLock();
+      }
+
+      if (key === 'e') {
+        endTurn();
+      }
+    });
+  </script></body>
+</html>
