@@ -4,265 +4,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>グッズロックカウンター</title>
 <style>
-  * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-  }html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; background: radial-gradient(circle at center, #2a2a2a 0%, #141414 62%, #0b0b0b 100%); color: #fff; }
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:radial-gradient(circle at center,#272727 0%,#0f0f0f 72%);color:#fff}.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden}
 
-body { position: relative; }
+.screen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(180,0,0,0.22),rgba(70,0,0,0.45) 55%,rgba(0,0,0,0.6));opacity:0;transition:opacity .3s ease;z-index:1}
 
-.screen { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; cursor: pointer; user-select: none; overflow: hidden; background: radial-gradient(circle at center, rgba(255,255,255,0.025) 0%, rgba(0,0,0,0) 55%); }
+.title{position:absolute;top:14px;left:16px;font-size:13px;font-weight:800;letter-spacing:.08em;opacity:.2;pointer-events:none}
 
-.screen::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(160, 0, 0, 0) 0%, rgba(100, 0, 0, 0) 60%, rgba(60, 0, 0, 0) 100%); transition: opacity 0.22s ease; opacity: 0; z-index: 1; }
+.corner-hint{position:absolute;right:10px;bottom:8px;font-size:11px;color:rgba(255,255,255,.14);pointer-events:none}
 
-.screen::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.08); opacity: 0; transition: opacity 0.22s ease; z-index: 1; }
+.goods-lock{position:relative;z-index:10;font-size:clamp(90px,20vw,200px);font-weight:1000;line-height:.9;text-align:center;color:#fff2f2;-webkit-text-stroke:5px #a50e0e;text-shadow:0 0 16px rgba(255,50,50,.9),0 0 40px rgba(255,20,20,.9),0 0 120px rgba(255,20,20,.8),0 16px 50px rgba(0,0,0,.7);opacity:0;transform:scale(.12);letter-spacing:.03em}
 
-.content { position: relative; z-index: 4; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; }
+.vine-layer{position:absolute;inset:0;z-index:5;pointer-events:none}
 
-.title { font-size: clamp(28px, 7vw, 48px); font-weight: 900; letter-spacing: 0.04em; text-shadow: 0 6px 20px rgba(0,0,0,0.4); opacity: 0.92; }
+.vine{position:absolute;opacity:0;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5))}
 
-.status { font-size: clamp(16px, 3.6vw, 22px); color: rgba(255,255,255,0.72); text-shadow: 0 4px 12px rgba(0,0,0,0.35); }
+.vine path.shade{fill:none;stroke:#0f3511;stroke-width:42;stroke-linecap:round;opacity:.65} .vine path.main{fill:none;stroke:#1c6a20;stroke-width:26;stroke-linecap:round} .vine path.highlight{fill:none;stroke:#7cda61;stroke-width:8;stroke-linecap:round;opacity:.75} .vine .leaf{fill:#59b048;stroke:#214f1f;stroke-width:2}
 
-.goods-lock { position: relative; z-index: 4; margin-top: 8px; font-size: clamp(42px, 11vw, 88px); font-weight: 900; color: #ff4b4b; text-shadow: 0 0 10px rgba(255, 30, 30, 0.82), 0 0 26px rgba(255, 40, 40, 0.74), 0 0 56px rgba(255, 30, 30, 0.52), 0 10px 24px rgba(0,0,0,0.45); opacity: 0; transform: scale(0.7); transition: opacity 0.18s ease; pointer-events: none; }
+/* positions */ .vine.a{top:-12%;left:-14%;width:72vw;height:74vh;transform:scale(.01) rotate(-28deg)} .vine.b{top:-14%;right:-15%;width:74vw;height:74vh;transform:scale(.01) rotate(32deg) scaleX(-1)} .vine.c{left:-15%;bottom:-14%;width:74vw;height:72vh;transform:scale(.01) rotate(24deg) scaleY(-1)} .vine.d{right:-16%;bottom:-15%;width:76vw;height:74vh;transform:scale(.01) rotate(-30deg) scale(-1)} .vine.e{left:50%;top:50%;width:130vw;height:70vh;transform:translate(-50%,-50%) scale(.005) rotate(-6deg)} .vine.f{top:10%;left:-20%;width:62vw;height:58vh;transform:scale(.01) rotate(8deg)} .vine.g{top:14%;right:-20%;width:62vw;height:58vh;transform:scale(.01) rotate(-14deg) scaleX(-1)} .vine.h{left:22%;bottom:-16%;width:62vw;height:54vh;transform:scale(.01) rotate(-8deg)} .vine.i{right:20%;top:-16%;width:56vw;height:52vh;transform:scale(.01) rotate(18deg)} .vine.j{left:35%;top:-18%;width:56vw;height:60vh;transform:scale(.01) rotate(12deg)} .vine.k{right:35%;bottom:-18%;width:56vw;height:60vh;transform:scale(.01) rotate(-16deg)}
 
-.corner-hint { position: absolute; right: 10px; bottom: 8px; z-index: 5; font-size: 11px; color: rgba(255,255,255,0.16); letter-spacing: 0.05em; text-align: right; pointer-events: none; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
+.locked::before{opacity:1}
 
-.vine-layer { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+/* long wrapping animations */ .locked .vine{animation-duration:1.6s;animation-fill-mode:forwards;animation-timing-function:cubic-bezier(.15,1.05,.25,1)} .locked .vine.a{animation-name:vineA} .locked .vine.b{animation-name:vineB;animation-delay:.08s} .locked .vine.c{animation-name:vineC;animation-delay:.16s} .locked .vine.d{animation-name:vineD;animation-delay:.24s} .locked .vine.e{animation-name:vineE;animation-delay:.34s} .locked .vine.f{animation-name:vineF;animation-delay:.28s} .locked .vine.g{animation-name:vineG;animation-delay:.36s} .locked .vine.h{animation-name:vineH;animation-delay:.44s} .locked .vine.i{animation-name:vineI;animation-delay:.5s} .locked .vine.j{animation-name:vineJ;animation-delay:.56s} .locked .vine.k{animation-name:vineK;animation-delay:.62s}
 
-.vine { position: absolute; opacity: 0; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.45)); }
+.locked .goods-lock{opacity:1;animation:slamText .55s cubic-bezier(.15,1.45,.3,1) .12s forwards,shockFlash .5s ease-out .12s,pulse 1.2s ease-in-out 1s infinite}
 
-.vine svg { width: 100%; height: 100%; overflow: visible; }
+/* vine animations */ @keyframes vineA{0%{opacity:0;transform:scale(.01) rotate(-60deg) translate(-360px,-300px)}60%{opacity:1;transform:scale(.7) rotate(-28deg)}100%{opacity:1;transform:scale(1) rotate(-28deg)}} @keyframes vineB{0%{opacity:0;transform:scale(.01) rotate(60deg) scaleX(-1) translate(360px,-300px)}60%{opacity:1;transform:scale(.72) rotate(32deg) scaleX(-1)}100%{opacity:1;transform:scale(1) rotate(32deg) scaleX(-1)}} @keyframes vineC{0%{opacity:0;transform:scale(.01) rotate(54deg) scaleY(-1) translate(-360px,300px)}60%{opacity:1;transform:scale(.74) rotate(24deg) scaleY(-1)}100%{opacity:1;transform:scale(1) rotate(24deg) scaleY(-1)}} @keyframes vineD{0%{opacity:0;transform:scale(.01) rotate(-60deg) scale(-1) translate(360px,300px)}60%{opacity:1;transform:scale(.76) rotate(-30deg) scale(-1)}100%{opacity:1;transform:scale(1) rotate(-30deg) scale(-1)}} @keyframes vineE{0%{opacity:0;transform:translate(-50%,-50%) scale(.005) rotate(-20deg)}60%{opacity:1;transform:translate(-50%,-50%) scale(.6) rotate(-8deg)}100%{opacity:.98;transform:translate(-50%,-50%) scale(1) rotate(-6deg)}} @keyframes vineF{0%{opacity:0;transform:scale(.01) rotate(20deg) translate(-260px,40px)}60%{opacity:1;transform:scale(.7) rotate(8deg)}100%{opacity:.98;transform:scale(1) rotate(8deg)}} @keyframes vineG{0%{opacity:0;transform:scale(.01) rotate(-24deg) scaleX(-1) translate(260px,40px)}60%{opacity:1;transform:scale(.72) rotate(-14deg) scaleX(-1)}100%{opacity:.98;transform:scale(1) rotate(-14deg) scaleX(-1)}} @keyframes vineH{0%{opacity:0;transform:scale(.01) rotate(-18deg) translate(-60px,260px)}60%{opacity:1;transform:scale(.72) rotate(-8deg)}100%{opacity:.98;transform:scale(1) rotate(-8deg)}} @keyframes vineI{0%{opacity:0;transform:scale(.01) rotate(34deg) translate(60px,-260px)}60%{opacity:1;transform:scale(.72) rotate(18deg)}100%{opacity:.98;transform:scale(1) rotate(18deg)}} @keyframes vineJ{0%{opacity:0;transform:scale(.01) rotate(12deg) translate(-40px,-300px)}60%{opacity:1;transform:scale(.7) rotate(12deg)}100%{opacity:.98;transform:scale(1) rotate(12deg)}} @keyframes vineK{0%{opacity:0;transform:scale(.01) rotate(-16deg) translate(40px,300px)}60%{opacity:1;transform:scale(.7) rotate(-16deg)}100%{opacity:.98;transform:scale(1) rotate(-16deg)}}
 
-.vine path.main { fill: none; stroke: #1f5f22; stroke-width: 18; stroke-linecap: round; stroke-linejoin: round; }
+/* text slam */ @keyframes slamText{0%{transform:scale(2.6);opacity:0;filter:blur(16px)}50%{transform:scale(.7);opacity:1}75%{transform:scale(1.15)}100%{transform:scale(1)}}
 
-.vine path.shade { fill: none; stroke: #0f3412; stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+@keyframes shockFlash{0%{text-shadow:0 0 0 rgba(0,0,0,0)}50%{text-shadow:0 0 30px #fff,0 0 80px #ff0000,0 0 180px #ff0000}100%{text-shadow:0 0 16px rgba(255,50,50,.9),0 0 40px rgba(255,20,20,.9),0 0 120px rgba(255,20,20,.8)}}
 
-.vine path.highlight { fill: none; stroke: #5fb24a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; opacity: 0.62; }
-
-.vine .leaf { fill: #48993a; stroke: #214f1f; stroke-width: 2; }
-
-.vine.top-left { top: -8%; left: -10%; width: 64vw; height: 64vh; transform: scale(0.46) rotate(-22deg); }
-
-.vine.top-right { top: -10%; right: -12%; width: 66vw; height: 64vh; transform: scale(0.46) rotate(28deg) scaleX(-1); }
-
-.vine.bottom-left { left: -12%; bottom: -10%; width: 68vw; height: 62vh; transform: scale(0.44) rotate(22deg) scaleY(-1); }
-
-.vine.bottom-right { right: -14%; bottom: -12%; width: 68vw; height: 66vh; transform: scale(0.44) rotate(-26deg) scale(-1); }
-
-.vine.center-sweep { left: 50%; top: 50%; width: 110vw; height: 54vh; transform: translate(-50%, -50%) scale(0.3) rotate(-6deg); }
-
-.locked::before { opacity: 1; }
-
-.locked::after { opacity: 1; }
-
-.locked .vine { opacity: 1; }
-
-.locked .vine.top-left { animation: vineGrowTL 0.55s cubic-bezier(.18,1.15,.35,1) forwards; }
-
-.locked .vine.top-right { animation: vineGrowTR 0.58s cubic-bezier(.18,1.15,.35,1) 0.03s forwards; }
-
-.locked .vine.bottom-left { animation: vineGrowBL 0.62s cubic-bezier(.18,1.15,.35,1) 0.06s forwards; }
-
-.locked .vine.bottom-right { animation: vineGrowBR 0.66s cubic-bezier(.18,1.15,.35,1) 0.09s forwards; }
-
-.locked .vine.center-sweep { animation: vineSweep 0.52s cubic-bezier(.18,1.15,.35,1) 0.15s forwards; }
-
-.locked .goods-lock { opacity: 1; animation: stamp 0.28s cubic-bezier(.2,1.8,.4,1) forwards, pulse 1.1s ease-in-out 0.35s infinite; }
-
-@keyframes vineGrowTL { 0% { opacity: 0; transform: scale(0.08) rotate(-42deg) translate(-160px, -160px); } 55% { opacity: 1; transform: scale(0.62) rotate(-18deg) translate(10px, 8px); } 100% { opacity: 1; transform: scale(1) rotate(-22deg) translate(0, 0); } } 70% { opacity: 1; transform: scale(0.72) rotate(-10deg) translate(6px, 6px); } 100% { opacity: 1; transform: scale(1) rotate(-16deg) translate(0, 0); } }
-
-@keyframes vineGrowTR { 0% { opacity: 0; transform: scale(0.08) rotate(46deg) scaleX(-1) translate(160px, -160px); } 55% { opacity: 1; transform: scale(0.64) rotate(22deg) scaleX(-1) translate(-10px, 8px); } 100% { opacity: 1; transform: scale(1) rotate(28deg) scaleX(-1) translate(0, 0); } } 70% { opacity: 1; transform: scale(0.74) rotate(18deg) scaleX(-1) translate(-6px, 6px); } 100% { opacity: 1; transform: scale(1) rotate(22deg) scaleX(-1) translate(0, 0); } }
-
-@keyframes vineGrowBL { 0% { opacity: 0; transform: scale(0.08) rotate(36deg) scaleY(-1) translate(-160px, 160px); } 55% { opacity: 1; transform: scale(0.64) rotate(18deg) scaleY(-1) translate(8px, -10px); } 100% { opacity: 1; transform: scale(1) rotate(22deg) scaleY(-1) translate(0, 0); } } 70% { opacity: 1; transform: scale(0.76) rotate(12deg) scaleY(-1) translate(4px, -6px); } 100% { opacity: 1; transform: scale(1) rotate(16deg) scaleY(-1) translate(0, 0); } }
-
-@keyframes vineGrowBR { 0% { opacity: 0; transform: scale(0.08) rotate(-42deg) scale(-1) translate(160px, 160px); } 55% { opacity: 1; transform: scale(0.66) rotate(-20deg) scale(-1) translate(-8px, -8px); } 100% { opacity: 1; transform: scale(1) rotate(-26deg) scale(-1) translate(0, 0); } } 70% { opacity: 1; transform: scale(0.78) rotate(-16deg) scale(-1) translate(-5px, -5px); } 100% { opacity: 1; transform: scale(1) rotate(-20deg) scale(-1) translate(0, 0); } }
-
-@keyframes vineSweep { 0% { opacity: 0; transform: translate(-50%, -50%) scale(0.02) rotate(-14deg); } 60% { opacity: 1; transform: translate(-50%, -50%) scale(0.82) rotate(-4deg); } 100% { opacity: 0.98; transform: translate(-50%, -50%) scale(1) rotate(-6deg); } } 65% { opacity: 1; transform: translate(-50%, -50%) scale(0.9) rotate(-2deg); } 100% { opacity: 0.95; transform: translate(-50%, -50%) scale(1) rotate(-4deg); } }
-
-@keyframes stamp { 0% { transform: scale(1.6); opacity: 0; } 55% { transform: scale(0.9); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
-
-@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } } </style>
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}} </style>
 
 </head>
 <body>
-  <main id="screen" class="screen" aria-label="グッズロック画面">
-    <div class="vine-layer" aria-hidden="true">
-      <div class="vine top-left">
-        <svg viewBox="0 0 400 400">
-          <path class="shade" d="M20 40 C90 40, 120 120, 150 170 C190 235, 230 260, 300 290 C330 305, 350 335, 365 380"/>
-          <path class="main" d="M20 40 C90 40, 120 120, 150 170 C190 235, 230 260, 300 290 C330 305, 350 335, 365 380"/>
-          <path class="highlight" d="M28 44 C92 48, 122 126, 150 172 C188 232, 228 256, 296 288"/>
-          <ellipse class="leaf" cx="105" cy="88" rx="16" ry="30" transform="rotate(-30 105 88)"/>
-          <ellipse class="leaf" cx="155" cy="165" rx="15" ry="28" transform="rotate(28 155 165)"/>
-          <ellipse class="leaf" cx="232" cy="243" rx="15" ry="29" transform="rotate(-32 232 243)"/>
-          <ellipse class="leaf" cx="307" cy="306" rx="14" ry="26" transform="rotate(34 307 306)"/>
-        </svg>
-      </div><div class="vine top-right">
-    <svg viewBox="0 0 400 400">
-      <path class="shade" d="M20 55 C100 30, 140 110, 170 160 C205 220, 250 255, 308 295 C340 320, 360 350, 372 382"/>
-      <path class="main" d="M20 55 C100 30, 140 110, 170 160 C205 220, 250 255, 308 295 C340 320, 360 350, 372 382"/>
-      <path class="highlight" d="M28 60 C102 38, 141 116, 170 164 C203 218, 247 252, 304 292"/>
-      <ellipse class="leaf" cx="112" cy="86" rx="16" ry="30" transform="rotate(-26 112 86)"/>
-      <ellipse class="leaf" cx="176" cy="156" rx="16" ry="28" transform="rotate(32 176 156)"/>
-      <ellipse class="leaf" cx="246" cy="238" rx="14" ry="28" transform="rotate(-36 246 238)"/>
-      <ellipse class="leaf" cx="320" cy="310" rx="15" ry="28" transform="rotate(28 320 310)"/>
-    </svg>
-  </div>
+<main id="screen" class="screen">
+<div class="title">グッズロックカウンター</div><div class="vine-layer">
+<!-- existing vines -->
+<svg class="vine a" viewBox="0 0 500 500"><path class="shade" d="M20 50 C120 40 180 150 170 250 C160 350 260 380 320 330 C380 280 390 180 460 150"/><path class="main" d="M20 50 C120 40 180 150 170 250 C160 350 260 380 320 330 C380 280 390 180 460 150"/></svg>
+<svg class="vine b" viewBox="0 0 500 500"><path class="shade" d="M18 120 C110 80 160 150 170 250 C182 350 250 395 328 344 C398 299 398 216 470 190"/><path class="main" d="M18 120 C110 80 160 150 170 250 C182 350 250 395 328 344 C398 299 398 216 470 190"/></svg>
+<svg class="vine c" viewBox="0 0 500 500"><path class="shade" d="M28 420 C120 360 170 300 162 228 C152 138 228 96 318 132 C408 170 406 248 470 270"/><path class="main" d="M28 420 C120 360 170 300 162 228 C152 138 228 96 318 132 C408 170 406 248 470 270"/></svg>
+<svg class="vine d" viewBox="0 0 500 500"><path class="shade" d="M32 398 C128 362 150 292 170 232 C204 132 286 88 360 130 C430 170 406 254 472 308"/><path class="main" d="M32 398 C128 362 150 292 170 232 C204 132 286 88 360 130 C430 170 406 254 472 308"/></svg>
+<svg class="vine e" viewBox="0 0 900 300"><path class="shade" d="M10 180 C140 110 240 210 330 150 C430 82 510 246 640 158 C726 100 806 162 890 112"/><path class="main" d="M10 180 C140 110 240 210 330 150 C430 82 510 246 640 158 C726 100 806 162 890 112"/></svg><!-- extra vines --><svg class="vine f" viewBox="0 0 500 500"><path class="shade" d="M36 460 C90 360 132 320 160 250 C188 176 242 146 322 160"/><path class="main" d="M36 460 C90 360 132 320 160 250 C188 176 242 146 322 160"/></svg> <svg class="vine g" viewBox="0 0 500 500"><path class="shade" d="M30 420 C100 360 124 304 170 236 C228 146 294 146 360 166"/><path class="main" d="M30 420 C100 360 124 304 170 236 C228 146 294 146 360 166"/></svg> <svg class="vine h" viewBox="0 0 500 500"><path class="shade" d="M28 430 C110 350 140 282 212 230 C280 180 356 176 470 110"/><path class="main" d="M28 430 C110 350 140 282 212 230 C280 180 356 176 470 110"/></svg> <svg class="vine i" viewBox="0 0 500 500"><path class="shade" d="M42 48 C108 108 154 164 208 236 C264 306 318 330 470 410"/><path class="main" d="M42 48 C108 108 154 164 208 236 C264 306 318 330 470 410"/></svg> <svg class="vine j" viewBox="0 0 500 500"><path class="shade" d="M60 20 C140 120 200 160 260 220"/><path class="main" d="M60 20 C140 120 200 160 260 220"/></svg> <svg class="vine k" viewBox="0 0 500 500"><path class="shade" d="M460 480 C380 380 320 320 240 240"/><path class="main" d="M460 480 C380 380 320 320 240 240"/></svg>
 
-  <div class="vine bottom-left">
-    <svg viewBox="0 0 400 400">
-      <path class="shade" d="M22 48 C95 52, 128 120, 158 175 C190 230, 234 262, 294 300 C332 322, 356 349, 372 380"/>
-      <path class="main" d="M22 48 C95 52, 128 120, 158 175 C190 230, 234 262, 294 300 C332 322, 356 349, 372 380"/>
-      <path class="highlight" d="M30 54 C95 56, 128 126, 158 176 C188 226, 232 258, 291 296"/>
-      <ellipse class="leaf" cx="112" cy="94" rx="16" ry="30" transform="rotate(-22 112 94)"/>
-      <ellipse class="leaf" cx="168" cy="177" rx="15" ry="29" transform="rotate(26 168 177)"/>
-      <ellipse class="leaf" cx="244" cy="252" rx="14" ry="27" transform="rotate(-36 244 252)"/>
-      <ellipse class="leaf" cx="313" cy="313" rx="15" ry="27" transform="rotate(34 313 313)"/>
-    </svg>
-  </div>
+</div><div class="goods-lock">Goods<br>Lock!!</div><div class="corner-hint">tap</div>
+</main><script>
+const screen=document.getElementById("screen")
+let locked=false
+let audioContext=null
 
-  <div class="vine bottom-right">
-    <svg viewBox="0 0 400 400">
-      <path class="shade" d="M24 52 C90 32, 132 110, 160 162 C196 226, 238 258, 302 299 C338 323, 360 350, 376 384"/>
-      <path class="main" d="M24 52 C90 32, 132 110, 160 162 C196 226, 238 258, 302 299 C338 323, 360 350, 376 384"/>
-      <path class="highlight" d="M30 58 C93 40, 134 115, 160 166 C194 224, 236 256, 298 296"/>
-      <ellipse class="leaf" cx="102" cy="86" rx="16" ry="30" transform="rotate(-26 102 86)"/>
-      <ellipse class="leaf" cx="163" cy="166" rx="16" ry="29" transform="rotate(28 163 166)"/>
-      <ellipse class="leaf" cx="238" cy="246" rx="15" ry="28" transform="rotate(-34 238 246)"/>
-      <ellipse class="leaf" cx="316" cy="315" rx="15" ry="28" transform="rotate(32 316 315)"/>
-    </svg>
-  </div>
+function getAudioContext(){
+ if(!audioContext)audioContext=new(window.AudioContext||window.webkitAudioContext)()
+ if(audioContext.state==='suspended')audioContext.resume()
+ return audioContext
+}
 
-  <div class="vine center-sweep">
-    <svg viewBox="0 0 800 260">
-      <path class="shade" d="M20 150 C110 80, 190 70, 280 120 C360 165, 430 180, 510 140 C590 102, 670 95, 780 135"/>
-      <path class="main" d="M20 150 C110 80, 190 70, 280 120 C360 165, 430 180, 510 140 C590 102, 670 95, 780 135"/>
-      <path class="highlight" d="M30 145 C116 85, 192 76, 276 122 C356 162, 430 176, 508 138 C585 104, 666 98, 770 132"/>
-      <ellipse class="leaf" cx="132" cy="110" rx="16" ry="30" transform="rotate(-34 132 110)"/>
-      <ellipse class="leaf" cx="246" cy="102" rx="15" ry="28" transform="rotate(28 246 102)"/>
-      <ellipse class="leaf" cx="402" cy="164" rx="15" ry="29" transform="rotate(-26 402 164)"/>
-      <ellipse class="leaf" cx="572" cy="118" rx="15" ry="28" transform="rotate(32 572 118)"/>
-      <ellipse class="leaf" cx="680" cy="108" rx="14" ry="27" transform="rotate(-30 680 108)"/>
-    </svg>
-  </div>
-</div>
+function playLockSound(){
+ const ctx=getAudioContext()
+ const now=ctx.currentTime
+ const osc=ctx.createOscillator()
+ const gain=ctx.createGain()
+ osc.type='sawtooth'
+ osc.frequency.setValueAtTime(120,now)
+ osc.frequency.exponentialRampToValueAtTime(45,now+.28)
+ gain.gain.setValueAtTime(.001,now)
+ gain.gain.exponentialRampToValueAtTime(.7,now+.02)
+ gain.gain.exponentialRampToValueAtTime(.001,now+.32)
+ osc.connect(gain)
+ gain.connect(ctx.destination)
+ osc.start(now)
+ osc.stop(now+.33)
+}
 
-<div class="content">
-  <div class="title">グッズロックカウンター</div>
-  <div id="status" class="status">解除中</div>
-  <div class="goods-lock" aria-hidden="true">Goods Lock!!</div>
-</div>
+function lock(){
+ locked=true
+ screen.classList.remove('locked')
+ void screen.offsetWidth
+ screen.classList.add('locked')
+ playLockSound()
+ if(navigator.vibrate)navigator.vibrate([100,40,140])
+}
 
-<div class="corner-hint">tap</div>
+function unlock(){
+ locked=false
+ screen.classList.remove('locked')
+}
 
-  </main><script>
-  const screen = document.getElementById('screen');
-  const statusText = document.getElementById('status');
-  let isLocked = false;
-  let audioContext = null;
-
-  function getAudioContext() {
-    if (!audioContext) {
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (audioContext.state === 'suspended') {
-      audioContext.resume();
-    }
-    return audioContext;
-  }
-
-  function playLockSound() {
-    const ctx = getAudioContext();
-    const now = ctx.currentTime;
-
-    const master = ctx.createGain();
-    master.gain.setValueAtTime(0.9, now);
-    master.connect(ctx.destination);
-
-    const bodyOsc = ctx.createOscillator();
-    const bodyGain = ctx.createGain();
-    bodyOsc.type = 'sawtooth';
-    bodyOsc.frequency.setValueAtTime(140, now);
-    bodyOsc.frequency.exponentialRampToValueAtTime(52, now + 0.22);
-    bodyGain.gain.setValueAtTime(0.001, now);
-    bodyGain.gain.exponentialRampToValueAtTime(0.55, now + 0.018);
-    bodyGain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
-    bodyOsc.connect(bodyGain);
-    bodyGain.connect(master);
-    bodyOsc.start(now);
-    bodyOsc.stop(now + 0.25);
-
-    const impactOsc = ctx.createOscillator();
-    const impactGain = ctx.createGain();
-    impactOsc.type = 'square';
-    impactOsc.frequency.setValueAtTime(520, now);
-    impactOsc.frequency.exponentialRampToValueAtTime(120, now + 0.08);
-    impactGain.gain.setValueAtTime(0.001, now);
-    impactGain.gain.exponentialRampToValueAtTime(0.28, now + 0.006);
-    impactGain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
-    impactOsc.connect(impactGain);
-    impactGain.connect(master);
-    impactOsc.start(now);
-    impactOsc.stop(now + 0.1);
-
-    const clangOsc = ctx.createOscillator();
-    const clangGain = ctx.createGain();
-    clangOsc.type = 'triangle';
-    clangOsc.frequency.setValueAtTime(980, now + 0.012);
-    clangOsc.frequency.exponentialRampToValueAtTime(280, now + 0.12);
-    clangGain.gain.setValueAtTime(0.001, now + 0.01);
-    clangGain.gain.exponentialRampToValueAtTime(0.16, now + 0.022);
-    clangGain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
-    clangOsc.connect(clangGain);
-    clangGain.connect(master);
-    clangOsc.start(now + 0.01);
-    clangOsc.stop(now + 0.17);
-  }
-
-  function playUnlockSound() {
-    const ctx = getAudioContext();
-    const now = ctx.currentTime;
-
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(180, now);
-    osc.frequency.linearRampToValueAtTime(320, now + 0.08);
-    gain.gain.setValueAtTime(0.001, now);
-    gain.gain.exponentialRampToValueAtTime(0.12, now + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + 0.16);
-  }
-
-  function lock() {
-    isLocked = true;
-    screen.classList.remove('locked');
-    void screen.offsetWidth;
-    screen.classList.add('locked');
-    statusText.textContent = '状態：グッズロック中';
-    playLockSound();
-    if (navigator.vibrate) navigator.vibrate([70, 40, 90]);
-  }
-
-  function unlock() {
-    isLocked = false;
-    screen.classList.remove('locked');
-    statusText.textContent = '状態：解除中';
-    playUnlockSound();
-    if (navigator.vibrate) navigator.vibrate(50);
-  }
-
-  function toggleLock() {
-    if (isLocked) {
-      unlock();
-    } else {
-      lock();
-    }
-  }
-
-  screen.addEventListener('click', toggleLock);
+screen.addEventListener('click',()=>{
+ if(locked)unlock()
+ else lock()
+})
 </script></body>
 </html>
