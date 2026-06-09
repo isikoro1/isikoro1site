@@ -2,396 +2,550 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isikoro1 | Portfolio</title>
+    <meta name="description"
+        content="isikoro1 のポートフォリオサイト。Webアプリ、個人開発、フロントエンド実装、Python/React/TypeScript を中心とした制作物を掲載しています。" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-
-    <title>isikoro1</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- navbar section -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark site-navbar fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <h2 class="text-white pt-1">isikoro1</h2>
-            </a>
+            <a class="navbar-brand brand-mark" href="#">isikoro1</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#top">Top</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#works">Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://isikoro1.github.io/isikolog/" target="_blank"
+                            rel="noopener noreferrer">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/isikoro1" target="_blank"
+                            rel="noopener noreferrer">GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://qiita.com/isikoro" target="_blank"
+                            rel="noopener noreferrer">Qiita</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Application">Application</a>
+                        <a class="nav-link nav-x-link" href="https://x.com/mot1173137" target="_blank"
+                            rel="noopener noreferrer" aria-label="X">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://isikoro1.github.io/isikolog/">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/isikoro1" target="_blank">Github</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://qiita.com/isikoro" target="_blank">Qiita link</a>
-                    </li>
-                    <div class="social-icons ">
-                        <a href="https://x.com/mot1173137" target="_blank"><i class="bx bxl-twitter"></i></a>
-                    </div>
-                    <li class="nav-item">
-
                 </ul>
-                <!-- <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
             </div>
         </div>
     </nav>
 
-    <!-- hero section -->
-    <!-- <div class="hero vh-100 d-flex align-items-center" id="home"
-        style="background-image: url('img/isikoro3.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <header id="top" class="hero-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-7 mx-auto text-center">
-                    <h1 class="display-4 text-white">isikoro1</h1>
-                    <p class="text-white my-3">作った物やプロフィールなどを紹介しています。
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">PORTFOLIO / WEB DEVELOPMENT</p>
+                    <h1>
+                        個人開発と実装を積み重ねる<br />
+                        Webエンジニアのポートフォリオ
+                    </h1>
+                    <p class="hero-lead">
+                        React / TypeScript / JavaScript / Python を中心に、実際に公開して触れるWebアプリやツールを制作しています。
+                        作って終わりではなく、使いやすさ、公開、改善まで含めて育てていくことを大切にしています。
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn btn-main" href="#works">制作物を見る</a>
+                        <a class="btn btn-sub" href="https://github.com/isikoro1" target="_blank"
+                            rel="noopener noreferrer">GitHubを見る</a>
+                    </div>
+
+                    <div class="hero-points">
+                        <div class="hero-point">
+                            <span class="hero-point-label">主軸</span>
+                            <strong>フロントエンド / 個人開発</strong>
+                        </div>
+                        <div class="hero-point">
+                            <span class="hero-point-label">使用技術</span>
+                            <strong>React, TypeScript, Python</strong>
+                        </div>
+                        <div class="hero-point">
+                            <span class="hero-point-label">重視すること</span>
+                            <strong>公開・改善・使える形</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-panel">
+                    <div class="hero-card">
+                        <p class="hero-card-label">Recently Building</p>
+                        <h2>小さく作って公開し、使いながら改善する</h2>
+                        <p>
+                            Timebox、marude-note、para-roll-world など、ブラウザで触れるアプリを継続して増やしています。
+                            GitHub Pages や独自ドメインで公開し、実際の利用を想定したUIと機能を整えています。
+                        </p>
+                        <ul class="hero-list">
+                            <li>公開URLがある制作物を優先して掲載</li>
+                            <li>開発中のアプリもステータスを明示</li>
+                            <li>GitHub / Blog / Qiita へ移動しやすく整理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section-block">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>ABOUT</h2>
+                    <p>
+                        システムエンジニアとして働きながら、個人開発でWebアプリやツール制作を続けています。
+                        C# / Python / JavaScript / TypeScript などを使い、UIを持つアプリを公開できる成果物として形にすることを重視しています。
                     </p>
                 </div>
-            </div>
-        </div>
-    </div> -->
 
-    <!-- Profile section -->
-    <section id="Profile" class="row py-0 bg-light">
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col-md-10 pt-4 offset-md-1 px-5">
-                    <h6 class="text-primary"></h6>
-                    <div class="feature d-flex mt-4">
-                    </div>
-                    <div class="feature d-flex mt-4">
-                        <div>
-                            <p>
-                                システムエンジニアとして働いています。
-                                個人開発ではC#/Python/JSなどを使って開発しています。
-                            </p>
-                        </div>
-                    </div>
+                <div class="about-grid">
+                    <article class="info-card">
+                        <span class="info-icon"><i class="bx bx-code-alt"></i></span>
+                        <h3>実装して見せる</h3>
+                        <p>
+                            アイデア止まりではなく、GitHubと公開ページの両方で確認できる形にして積み上げています。
+                        </p>
+                    </article>
 
-                </div>
-            </div>
-        </div>
-    </section>
+                    <article class="info-card">
+                        <span class="info-icon"><i class="bx bx-window-alt"></i></span>
+                        <h3>UIと使い勝手を意識</h3>
+                        <p>
+                            動くだけではなく、操作しやすさや見た目も含めて、触れる成果物として整えることを意識しています。
+                        </p>
+                    </article>
 
-    <!-- application section -->
-    <section id="Application" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto text-center">
-                    <h1>作ったもの</h1>
+                    <article class="info-card">
+                        <span class="info-icon"><i class="bx bx-refresh"></i></span>
+                        <h3>改善前提で作る</h3>
+                        <p>
+                            小さく作って公開し、そこから修正、再設計、追加実装を重ねていく進め方を取っています。
+                        </p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank">
-                            <img src="./img/isikoroToDo.jpg" alt="">
-                        </a>
-                        <h5 class="mb-0 mt-4">
-                            ToDoアプリ
-                        </h5>
-                        <p>
-                            基本的なToDoアプリです。CRUD処理を学習するためにAIのティーチングを受けながら作成しました。
-                        </p>
-                        <p>
-                            React / Typescript / Vite
-                        </p>
-                        <div class="button-group">
-                            <a href="https://isikoro1.github.io/isikoro-todo/" class="text-primary" target="_blank">
-                                公開ページ
-                            </a>/
-                            <a href="https://github.com/isikoro1/isikoro-todo" class="text-primary" target="_blank">
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <a href="https://isikoro-gamblegame-app.streamlit.app/#901f1464" target="_blank">
-                            <img src="./img/Gamblegame.jpg" alt="">
-                        </a>
-                        <h5 class="mb-0 mt-4">
-                            スロットシミュレーター
-                        </h5>
-                        <p>
-                            ギャンブルシミュレーターをGUIにしました。スロット風UI、掛け金をボタンで選択できます。倍プッシュ機能あり。
-                        </p>
-                        <p>
-                            Python / streamlit
-                        </p>
-                        <div class="button-group">
-                            <a href="https://isikoro-gamblegame-app.streamlit.app/#901f1464" class="text-primary"
-                                target="_blank">
-                                公開ページ
-                            </a>/
-                            <a href="https://github.com/isikoro1/gambleGame-streamlit" class="text-primary"
-                                target="_blank">
-                                GitHub
-                            </a>/
-                            <a href="https://qiita.com/isikoro2345/items/7d58af404385916d838c" class="text-primary"
-                                target="_blank">
-                                詳細
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <a href="https://unityroom.com/games/fallingball" class="text-primary" target="_blank">
-                            <img src="./img/ballgame.png" alt="">
-                        </a>
-                        <h5 class="mb-0 mt-4">
-                            StackBall風カジュアルゲーム
-                        </h5>
-                        <p>
-                            1ボタンで遊べるUnity製カジュアルゲームです。Udemyの講座を参考に作成しました。
-                        </p>
-                        <p>
-                            Unity / C#
-                        </p>
-                        <div class="button-group">
-
-                            <a href="https://github.com/isikoro1/StackballTasteGame" class="text-primary"
-                                target="_blank">
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <a href="https://isikoro1.github.io/NumbersGame/" class="text-primary" target="_blank">
-                            <img src="./img/numbergame.jpg" alt="">
-                        </a>
-                        <h5 class="mb-0 mt-4">
-                            数字順番早押しゲームアプリ
-                        </h5>
-                        <p>
-                            ドットインストールで学習したJavaScriptのNumbergameを5x5にアレンジしました。
-                        </p>
-                        <p>
-                            HTML / CSS / JavaScript
-                        </p>
-                        <div class="button-group">
-                            <a href="https://isikoro1.github.io/NumbersGame/" class="text-primary" target="_blank">
-                                公開ページ
-                            </a>/
-                            <a href="https://github.com/isikoro1/NumbersGame" class="text-primary" target="_blank">
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <a href="https://unityroom.com/games/geistertaste" target="_blank">
-                            <img src="./img/boardgame1.jpg" alt="">
-                        </a>
-                        <h5 class="mb-0 mt-4">
-                            ガイスター風ボードゲーム
-                        </h5>
-                        <p>
-                            ガイスターという心理戦ボードゲームの動作を再現しました。Udemyの講座を参考に作成しました。
-                        </p>
-                        <p>
-                            Unity / C#
-                        </p>
-                        <div class="button-group">
-                            <a href="https://unityroom.com/games/geistertaste" class="text-primary" target="_blank">
-                                公開ページ
-                            </a>/
-                            <a href="https://github.com/isikoro1/GeisterTasteGame-udemy-" class="text-primary"
-                                target="_blank">
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <a href="https://isikoro1.github.io/maze-generator/" target="_blank">
-                            <img src="./img/maze-generator.jpg" alt="">
-                        </a>
-                        <h5 class="mb-0 mt-4">
-                            迷路ジェネレータ
-                        </h5>
-                        <p>
-                            ランダムな迷路を生成するだけのアプリです。ページリロードで新しい迷路が生成されます。
-                        </p>
-                        <p>
-                            HTML / CSS / JavaScript
-                        </p>
-                        <div class="button-group">
-                            <a href="https://isikoro1.github.io/maze-generator/" class="text-primary" target="_blank">
-                                公開ページ
-                            </a>/
-                            <a href="https://github.com/isikoro1/maze-generator" class="text-primary" target="_blank">
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-card card-effect">
-                        <img src="./img/gbgameold.jpg" alt="">
-                        <h5 class="mb-0 mt-4">
-                            ギャンブルシミュレーター
-                        </h5>
-                        <p>
-                            学習初期に最初に作ったアプリです。必勝法と言われるマーチンゲール法を試せます。「勝敗が1:1なので、負けたら前回の倍掛け、勝ったら最低掛け金から始める」を繰り返すと地道に増えます。
-                        </p>
-                        <p>
-                            Python
-                        </p>
-                        <div class="button-group">
-                            <a href="https://github.com/isikoro1/gambleGame" class="text-primary" target="_blank">
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Skills section -->
-    <section id="Skills" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto text-center">
-                    <h1 class="mb-2">Skills</h1>
-                    <p class="mb-4">使用技術</p>
-                </div>
-            </div>
-
-            <div class="row g-3">
-                <div class="col-lg-3 col-sm-6 text-center">
-                    <div class="team-member card-effect">
-                        <div class="iconbox">
-                            <i class="bx devicon-html5-plain"></i>
-                        </div>
-                        <h5 class="mb-0 mt-4">HTML</h5>
-                        <p>2年</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 text-center">
-                    <div class="team-member card-effect">
-                        <div class="iconbox">
-                            <i class="bx devicon-css3-plain"></i>
-                        </div>
-                        <h5 class="mb-0 mt-4">CSS</h5>
-                        <p>2年</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 text-center">
-                    <div class="team-member card-effect">
-                        <div class="iconbox">
-                            <i class="bx devicon-javascript-plain"></i>
-                        </div>
-                        <h5 class="mb-0 mt-4">Javascript</h5>
-                        <p>1年</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 text-center">
-                    <div class="team-member card-effect">
-                        <div class="iconbox">
-                            <i class="bx"></i>
-                        </div>
-                        <h5 class="mb-0 mt-4">Java</h5>
-                        <p>個人学習0.5年</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 text-center">
-                    <div class="team-member card-effect">
-                        <div class="iconbox">
-                            <i class="bx devicon-python-plain"></i>
-                        </div>
-                        <h5 class="mb-0 mt-4">Python</h5>
-                        <p>個人学習/1年</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 text-center">
-                    <div class="team-member card-effect">
-                        <div class="iconbox">
-                            <i class="bx devicon-git-plain"></i>
-                        </div>
-                        <h5 class="mb-0 mt-4">Git</h5>
-                        <p>個人学習/2年</p>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- footer section -->
-    <footer>
-        <div class="footer-top">
+        <section id="works" class="section-block section-dark">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="#">
-                            <h2 class="text-white">isikoro1</h2>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Top</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="list-unstyled">
-                            <li><a href="#Profile">Profile</a></li>
-                            <li><a href="#Application">Application</a></li>
-                            <li><a href="#Skills">Skills</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="list-unstyled">
-                            <li><a href="https://github.com/isikoro1">Github</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="list-unstyled">
-                            <li><a href="https://qiita.com/isikoro2345">Qiita(Blog)</a></li>
-                        </ul>
+                <div class="section-heading center">
+                    <p class="section-kicker">WORKS</p>
+                    <h2>公開・開発中の制作物</h2>
+                    <p>
+                        学習用だけではなく、実際にブラウザなどで確認できる成果物を中心に掲載しています。
+                    </p>
+                </div>
+
+                <div class="works-subheading">
+                    <p class="section-kicker">IN DEVELOPMENT</p>
+                    <h3>開発中</h3>
+                </div>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://para-roll-world.isikoro.dev/" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link work-placeholder para-theme">
+                                <span>Para Roll World</span>
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">In Development</span>
+                                    <span class="work-stack">Web App</span>
+                                </div>
+                                <h3>Para Roll World</h3>
+                                <p>
+                                    独自ドメインで公開している開発中のWebアプリです。公開しながら機能やUIを改善していくプロジェクトとして進めています。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://para-roll-world.isikoro.dev/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                </div>
+                            </div>
+                        </article>
                     </div>
 
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro1.github.io/marude-note/" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link work-placeholder note-theme">
+                                <span>marude-note</span>
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">In Development</span>
+                                    <span class="work-stack">GitHub Pages</span>
+                                </div>
+                                <h3>marude-note</h3>
+                                <p>
+                                    ブラウザで使えるノート系アプリです。書く、整理する、扱いやすく残す体験を意識して開発しています。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro1.github.io/marude-note/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
+
+                <div class="works-subheading">
+                    <p class="section-kicker">RECENT APPS</p>
+                    <h3>最近作ったアプリ</h3>
+                </div>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro1.github.io/timebox/" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link work-placeholder timebox-theme">
+                                <span>Timebox</span>
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Web App</span>
+                                    <span class="work-stack">React / TypeScript</span>
+                                </div>
+                                <h3>Timebox</h3>
+                                <p>
+                                    予定や作業時間をタイムボックスとして扱うスケジュール管理アプリです。日々の作業を視覚的に整理しやすいUIを目指しています。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro1.github.io/timebox/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/timebox" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://github.com/isikoro1/matrix-rain-quiz" target="_blank"
+                                rel="noopener noreferrer" class="work-thumb-link work-placeholder matrix-theme">
+                                <span>Matrix Rain Quiz</span>
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Quiz App</span>
+                                    <span class="work-stack">GitHub</span>
+                                </div>
+                                <h3>Matrix Rain Quiz</h3>
+                                <p>
+                                    Matrix風の表現を取り入れたクイズアプリです。見た目の演出とクイズ体験を組み合わせた制作物として公開しています。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://github.com/isikoro1/matrix-rain-quiz" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://github.com/isikoro1/youtube-shorts-hider" target="_blank"
+                                rel="noopener noreferrer" class="work-thumb-link work-placeholder shorts-theme">
+                                <span>YouTube Shorts Hider</span>
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Chrome Extension</span>
+                                    <span class="work-stack">JavaScript</span>
+                                </div>
+                                <h3>YouTube Shorts Hider</h3>
+                                <p>
+                                    YouTube Shortsを非表示にするためのブラウザ拡張です。普段の視聴体験を自分で制御しやすくする小さなツールです。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://github.com/isikoro1/youtube-shorts-hider" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="works-subheading">
+                    <p class="section-kicker">ARCHIVE</p>
+                    <h3>その他の制作物</h3>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link">
+                                <img src="./img/isikoroToDo.jpg" alt="ToDoアプリの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Web App</span>
+                                    <span class="work-stack">React / TypeScript / Vite</span>
+                                </div>
+                                <h3>ToDoアプリ</h3>
+                                <p>
+                                    基本的なCRUDを備えたToDoアプリです。状態管理や入力処理など、フロントエンド実装の基礎を確認できる成果物です。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/isikoro-todo" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro-gamblegame-app.streamlit.app/#901f1464" target="_blank"
+                                rel="noopener noreferrer" class="work-thumb-link">
+                                <img src="./img/Gamblegame.jpg" alt="スロットシミュレーターの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Python App</span>
+                                    <span class="work-stack">Python / Streamlit</span>
+                                </div>
+                                <h3>スロットシミュレーター</h3>
+                                <p>
+                                    ボタン操作で遊べるGUIアプリです。シンプルなゲーム性に加え、UIで触れるPythonアプリとして公開しています。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro-gamblegame-app.streamlit.app/#901f1464" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/gambleGame-streamlit" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                    <a href="https://qiita.com/isikoro2345/items/7d58af404385916d838c" target="_blank"
+                                        rel="noopener noreferrer">詳細</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://unityroom.com/games/fallingball" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link">
+                                <img src="./img/ballgame.png" alt="StackBall風カジュアルゲームの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Game</span>
+                                    <span class="work-stack">Unity / C#</span>
+                                </div>
+                                <h3>StackBall風カジュアルゲーム</h3>
+                                <p>
+                                    1ボタンで遊べるUnity製ゲームです。操作感とテンポ感を重視しながら完成まで作り切った作品です。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://unityroom.com/games/fallingball" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/StackballTasteGame" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro1.github.io/NumbersGame/" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link">
+                                <img src="./img/numbergame.jpg" alt="数字早押しゲームアプリの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Browser Game</span>
+                                    <span class="work-stack">HTML / CSS / JavaScript</span>
+                                </div>
+                                <h3>数字早押しゲームアプリ</h3>
+                                <p>
+                                    JavaScriptベースのゲームを拡張し、ルールや画面サイズを調整したブラウザアプリです。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro1.github.io/NumbersGame/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/NumbersGame" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://unityroom.com/games/geistertaste" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link">
+                                <img src="./img/boardgame1.jpg" alt="ガイスター風ボードゲームの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Game</span>
+                                    <span class="work-stack">Unity / C#</span>
+                                </div>
+                                <h3>ガイスター風ボードゲーム</h3>
+                                <p>
+                                    既存ゲームのルールと動きを再現しながら、インタラクションと盤面制御を形にしたUnity作品です。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://unityroom.com/games/geistertaste" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/GeisterTasteGame-udemy-" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro1.github.io/maze-generator/" target="_blank"
+                                rel="noopener noreferrer" class="work-thumb-link">
+                                <img src="./img/maze-generator.jpg" alt="迷路ジェネレーターの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Tool</span>
+                                    <span class="work-stack">HTML / CSS / JavaScript</span>
+                                </div>
+                                <h3>迷路ジェネレーター</h3>
+                                <p>
+                                    ランダムに迷路を生成するブラウザツールです。シンプルなロジックとUIを組み合わせて公開しています。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro1.github.io/maze-generator/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/maze-generator" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-block">
+            <div class="container">
+                <div class="section-heading center">
+                    <p class="section-kicker">SKILLS</p>
+                    <h2>使用技術</h2>
+                    <p>主に個人開発と実装で扱っている技術です。</p>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <i class="devicon-html5-plain"></i>
+                        <h3>HTML</h3>
+                        <p>マークアップ / レイアウト構築</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-css3-plain"></i>
+                        <h3>CSS</h3>
+                        <p>見た目調整 / レスポンシブ対応</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-javascript-plain"></i>
+                        <h3>JavaScript</h3>
+                        <p>UI操作 / ブラウザ実装</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-typescript-plain"></i>
+                        <h3>TypeScript</h3>
+                        <p>型安全なフロントエンド開発</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-react-original"></i>
+                        <h3>React</h3>
+                        <p>コンポーネントベースのUI構築</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-python-plain"></i>
+                        <h3>Python</h3>
+                        <p>ツール制作 / Streamlitアプリ</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-git-plain"></i>
+                        <h3>Git / GitHub</h3>
+                        <p>ソース管理 / 公開運用</p>
+                    </article>
+
+                    <article class="skill-card">
+                        <i class="devicon-csharp-plain"></i>
+                        <h3>C# / Unity</h3>
+                        <p>ゲーム制作 / ロジック実装</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <div>
+                        <p class="section-kicker">CONTACT / LINKS</p>
+                        <h2>制作物・技術発信はこちらから確認できます</h2>
+                        <p>
+                            詳細なコード、記事、日々のアウトプットは GitHub・Blog・Qiita・X にまとめています。
+                        </p>
+                    </div>
+                    <div class="cta-actions">
+                        <a class="btn btn-main" href="https://github.com/isikoro1" target="_blank"
+                            rel="noopener noreferrer">GitHub</a>
+                        <a class="btn btn-sub" href="https://isikoro1.github.io/isikolog/" target="_blank"
+                            rel="noopener noreferrer">Blog</a>
+                        <a class="btn btn-sub" href="https://qiita.com/isikoro" target="_blank"
+                            rel="noopener noreferrer">Qiita</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <a href="#" class="footer-brand">isikoro1</a>
+                <p class="footer-copy">Web development portfolio</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#top">Top</a>
+                <a href="#about">About</a>
+                <a href="#works">Works</a>
+                <a href="#skills">Skills</a>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
