@@ -369,6 +369,24 @@ img {
         linear-gradient(45deg, #281018, #111827);
 }
 
+.nekotower-theme {
+    background:
+        linear-gradient(135deg, rgba(255, 206, 115, 0.32), rgba(0, 209, 178, 0.18)),
+        linear-gradient(45deg, #241b12, #102521);
+}
+
+.matrix-simulator-theme {
+    background:
+        linear-gradient(180deg, rgba(0, 255, 153, 0.34), rgba(124, 156, 255, 0.12)),
+        linear-gradient(45deg, #03110b, #101827);
+}
+
+.goodslocker-theme {
+    background:
+        linear-gradient(135deg, rgba(124, 156, 255, 0.28), rgba(255, 206, 115, 0.2)),
+        linear-gradient(45deg, #171b2d, #242015);
+}
+
 .work-body {
     padding: 22px 22px 24px;
 }
