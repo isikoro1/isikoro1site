@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark site-navbar fixed-top">
         <div class="container">
-            <a class="navbar-brand brand-mark" href="#">isikoro1</a>
+            <a class="navbar-brand brand-mark" href="#top">isikoro.dev</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -27,16 +27,12 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#top">Top</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#works">Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#works">Apps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#games">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://isikoro1.github.io/isikolog/" target="_blank"
                             rel="noopener noreferrer">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://github.com/isikoro1" target="_blank"
-                            rel="noopener noreferrer">GitHub</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://qiita.com/isikoro" target="_blank"
-                            rel="noopener noreferrer">Qiita</a></li>
                     <li class="nav-item">
                         <a class="nav-link nav-x-link" href="https://x.com/mot1173137" target="_blank"
                             rel="noopener noreferrer" aria-label="X">
@@ -48,69 +44,14 @@
         </div>
     </nav>
 
-    <header id="top" class="hero-section">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow">PORTFOLIO / WEB DEVELOPMENT</p>
-                    <h1>
-                        isikoro1<br />
-                        作ったアプリ置き場
-                    </h1>
-                    <p class="hero-lead">
-                        React / TypeScript / JavaScript / Python を中心に、実際に公開して触れるWebアプリやツールを制作しています。
-                        作って終わりではなく、使いやすさ、公開、改善まで含めて育てていくことを大切にしています。
-                    </p>
-
-                    <div class="hero-actions">
-                        <a class="btn btn-main" href="#works">制作物を見る</a>
-                        <a class="btn btn-sub" href="https://github.com/isikoro1" target="_blank"
-                            rel="noopener noreferrer">GitHubを見る</a>
-                    </div>
-
-                    <div class="hero-points">
-                        <div class="hero-point">
-                            <span class="hero-point-label">主軸</span>
-                            <strong>フロントエンド / 個人開発</strong>
-                        </div>
-                        <div class="hero-point">
-                            <span class="hero-point-label">使用技術</span>
-                            <strong>React, TypeScript, Python</strong>
-                        </div>
-                        <div class="hero-point">
-                            <span class="hero-point-label">重視すること</span>
-                            <strong>公開・改善・使える形</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-panel">
-                    <div class="hero-card">
-                        <p class="hero-card-label">Recently Building</p>
-                        <h2>小さく作って公開し、使いながら改善する</h2>
-                        <p>
-                            Timebox、marude-note、para-roll-world など、ブラウザで触れるアプリを継続して増やしています。
-                            GitHub Pages や独自ドメインで公開し、実際の利用を想定したUIと機能を整えています。
-                        </p>
-                        <ul class="hero-list">
-                            <li>公開URLがある制作物を優先して掲載</li>
-                            <li>開発中のアプリもステータスを明示</li>
-                            <li>GitHub / Blog / Qiita へ移動しやすく整理</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="works" class="section-block section-dark">
+    <main id="top">
+        <section id="works" class="section-block section-dark top-apps-section">
             <div class="container">
-                <div class="section-heading center">
-                    <p class="section-kicker">WORKS</p>
-                    <h2>公開・開発中の制作物</h2>
+                <div class="section-heading center app-site-heading">
+                    <p class="section-kicker">APP LIST</p>
+                    <h2>isikoro.dev</h2>
                     <p>
-                        学習用だけではなく、実際にブラウザなどで確認できる成果物を中心に掲載しています。
+                        isikoro1 が作ったアプリやツールを置いているサイトです。公開中、開発中、ゲーム、ツールを一覧で見られるように整理しています。
                     </p>
                 </div>
 
@@ -193,8 +134,8 @@
                 </div>
 
                 <div class="works-subheading">
-                    <p class="section-kicker">RECENT APPS</p>
-                    <h3>最近作ったアプリ</h3>
+                    <p class="section-kicker">APPS</p>
+                    <h3>アプリ一覧</h3>
                 </div>
 
                 <div class="row g-4 mb-5">
@@ -245,6 +186,39 @@
                             </div>
                         </article>
                     </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <article class="work-card">
+                            <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank" rel="noopener noreferrer"
+                                class="work-thumb-link">
+                                <img src="./img/isikoroToDo.jpg" alt="ToDoアプリの画面" class="work-thumb" />
+                            </a>
+                            <div class="work-body">
+                                <div class="work-meta">
+                                    <span class="work-badge">Web App</span>
+                                    <span class="work-stack">React / TypeScript / Vite</span>
+                                </div>
+                                <h3>ToDoアプリ</h3>
+                                <p>
+                                    基本的なCRUDを備えたToDoアプリです。状態管理や入力処理など、フロントエンド実装の基礎を確認できる成果物です。
+                                </p>
+                                <div class="work-links">
+                                    <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank"
+                                        rel="noopener noreferrer">公開ページ</a>
+                                    <a href="https://github.com/isikoro1/isikoro-todo" target="_blank"
+                                        rel="noopener noreferrer">GitHub</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div id="tools" class="works-subheading">
+                    <p class="section-kicker">TOOLS</p>
+                    <h3>ツール一覧</h3>
+                </div>
+
+                <div class="row g-4 mb-5">
 
                     <div class="col-md-6 col-xl-4">
                         <article class="work-card">
@@ -314,39 +288,39 @@
                             </div>
                         </article>
                     </div>
-                </div>
 
-                <div class="works-subheading">
-                    <p class="section-kicker">ARCHIVE</p>
-                    <h3>その他の制作物</h3>
-                </div>
-
-                <div class="row g-4">
                     <div class="col-md-6 col-xl-4">
                         <article class="work-card">
-                            <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank" rel="noopener noreferrer"
-                                class="work-thumb-link">
-                                <img src="./img/isikoroToDo.jpg" alt="ToDoアプリの画面" class="work-thumb" />
+                            <a href="https://isikoro1.github.io/maze-generator/" target="_blank"
+                                rel="noopener noreferrer" class="work-thumb-link">
+                                <img src="./img/maze-generator.jpg" alt="迷路ジェネレーターの画面" class="work-thumb" />
                             </a>
                             <div class="work-body">
                                 <div class="work-meta">
-                                    <span class="work-badge">Web App</span>
-                                    <span class="work-stack">React / TypeScript / Vite</span>
+                                    <span class="work-badge">Tool</span>
+                                    <span class="work-stack">HTML / CSS / JavaScript</span>
                                 </div>
-                                <h3>ToDoアプリ</h3>
+                                <h3>迷路ジェネレーター</h3>
                                 <p>
-                                    基本的なCRUDを備えたToDoアプリです。状態管理や入力処理など、フロントエンド実装の基礎を確認できる成果物です。
+                                    ランダムに迷路を生成するブラウザツールです。シンプルなロジックとUIを組み合わせて公開しています。
                                 </p>
                                 <div class="work-links">
-                                    <a href="https://isikoro1.github.io/isikoro-todo/" target="_blank"
+                                    <a href="https://isikoro1.github.io/maze-generator/" target="_blank"
                                         rel="noopener noreferrer">公開ページ</a>
-                                    <a href="https://github.com/isikoro1/isikoro-todo" target="_blank"
+                                    <a href="https://github.com/isikoro1/maze-generator" target="_blank"
                                         rel="noopener noreferrer">GitHub</a>
                                 </div>
                             </div>
                         </article>
                     </div>
+                </div>
 
+                <div id="games" class="works-subheading">
+                    <p class="section-kicker">GAMES</p>
+                    <h3>ゲーム一覧</h3>
+                </div>
+
+                <div class="row g-4">
                     <div class="col-md-6 col-xl-4">
                         <article class="work-card">
                             <a href="https://isikoro-gamblegame-app.streamlit.app/#901f1464" target="_blank"
@@ -449,30 +423,6 @@
                         </article>
                     </div>
 
-                    <div class="col-md-6 col-xl-4">
-                        <article class="work-card">
-                            <a href="https://isikoro1.github.io/maze-generator/" target="_blank"
-                                rel="noopener noreferrer" class="work-thumb-link">
-                                <img src="./img/maze-generator.jpg" alt="迷路ジェネレーターの画面" class="work-thumb" />
-                            </a>
-                            <div class="work-body">
-                                <div class="work-meta">
-                                    <span class="work-badge">Tool</span>
-                                    <span class="work-stack">HTML / CSS / JavaScript</span>
-                                </div>
-                                <h3>迷路ジェネレーター</h3>
-                                <p>
-                                    ランダムに迷路を生成するブラウザツールです。シンプルなロジックとUIを組み合わせて公開しています。
-                                </p>
-                                <div class="work-links">
-                                    <a href="https://isikoro1.github.io/maze-generator/" target="_blank"
-                                        rel="noopener noreferrer">公開ページ</a>
-                                    <a href="https://github.com/isikoro1/maze-generator" target="_blank"
-                                        rel="noopener noreferrer">GitHub</a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
                 </div>
             </div>
         </section>
@@ -601,15 +551,18 @@
     <footer class="site-footer">
         <div class="container footer-inner">
             <div>
-                <a href="#" class="footer-brand">isikoro1</a>
-                <p class="footer-copy">Web development portfolio</p>
+                <a href="#top" class="footer-brand">isikoro.dev</a>
             </div>
 
             <div class="footer-links">
                 <a href="#top">Top</a>
-                <a href="#works">Works</a>
+                <a href="#works">Apps</a>
+                <a href="#tools">Tools</a>
+                <a href="#games">Games</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
+                <a href="https://github.com/isikoro1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://qiita.com/isikoro" target="_blank" rel="noopener noreferrer">Qiita</a>
             </div>
         </div>
     </footer>

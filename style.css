@@ -216,6 +216,10 @@ img {
     padding: 90px 0;
 }
 
+.top-apps-section {
+    padding-top: 140px;
+}
+
 .section-dark {
     background: rgba(255, 255, 255, 0.02);
     border-top: 1px solid var(--line);
