@@ -1,0 +1,8 @@
+name = "isikoro-site-api"
+main = "worker.js"
+compatibility_date = "2026-06-24"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "isikoro-site"
+database_id = "replace-with-your-d1-database-id"

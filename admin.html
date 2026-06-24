@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>管理 | isikoro.dev</title>
+    <meta name="description" content="isikoro.dev のアプリ情報を編集する管理画面です。" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark site-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand brand-mark" href="./index.html">isikoro.dev</a>
+        </div>
+    </nav>
+
+    <main id="top">
+        <section class="section-block section-dark top-apps-section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">ADMIN DRAFT</p>
+                    <h1 class="app-site-title">アプリ情報の編集</h1>
+                    <p>Cloudflare Workers API を接続した後に、アプリ情報をWebから作成・更新するための最小画面です。</p>
+                </div>
+
+                <div class="admin-grid">
+                    <section class="detail-panel">
+                        <h2>接続設定</h2>
+                        <form id="settings-form" class="comment-form">
+                            <input id="api-base" type="url" placeholder="API URL 例: https://isikoro-site-api.example.workers.dev" />
+                            <input id="admin-token" type="password" placeholder="ADMIN_TOKEN" />
+                            <button class="btn btn-sub" type="submit">保存</button>
+                        </form>
+                    </section>
+
+                    <section class="detail-panel">
+                        <h2>作成・更新</h2>
+                        <form id="app-form" class="comment-form admin-form">
+                            <input name="id" required placeholder="id 例: timebox" />
+                            <input name="title" required placeholder="タイトル" />
+                            <input name="category" placeholder="category: app / game / tool" />
+                            <input name="status" placeholder="status: public / development" />
+                            <input name="badge" placeholder="badge 例: Web App" />
+                            <input name="stack" placeholder="stack 例: React / TypeScript" />
+                            <input name="image" placeholder="画像URLまたはパス" />
+                            <input name="url" placeholder="公開URL" />
+                            <input name="sortOrder" type="number" placeholder="表示順" />
+                            <textarea name="summary" rows="3" placeholder="一覧用の短い説明"></textarea>
+                            <textarea name="detail" rows="5" placeholder="詳細ページ用の説明"></textarea>
+                            <button class="btn btn-main" type="submit">保存</button>
+                        </form>
+                        <p id="admin-message" class="muted-text"></p>
+                    </section>
+
+                    <section class="detail-panel">
+                        <h2>登録済みアプリ</h2>
+                        <button id="load-apps" class="btn btn-sub" type="button">読み込み</button>
+                        <div id="admin-app-list" class="comment-list admin-app-list"></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        (() => {
+            const apiInput = document.getElementById("api-base");
+            const tokenInput = document.getElementById("admin-token");
+            const settingsForm = document.getElementById("settings-form");
+            const appForm = document.getElementById("app-form");
+            const message = document.getElementById("admin-message");
+            const list = document.getElementById("admin-app-list");
+
+            apiInput.value = localStorage.getItem("isikoroApiBase") || "";
+            tokenInput.value = localStorage.getItem("isikoroAdminToken") || "";
+
+            const getConfig = () => ({
+                apiBase: apiInput.value.trim().replace(/\/$/, ""),
+                token: tokenInput.value.trim()
+            });
+
+            const apiRequest = async (path, options = {}) => {
+                const { apiBase, token } = getConfig();
+                if (!apiBase) throw new Error("API URLを設定してください。");
+                const response = await fetch(`${apiBase}${path}`, {
+                    ...options,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`,
+                        ...(options.headers || {})
+                    }
+                });
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok) throw new Error(data.error || "API request failed");
+                return data;
+            };
+
+            settingsForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                localStorage.setItem("isikoroApiBase", apiInput.value.trim());
+                localStorage.setItem("isikoroAdminToken", tokenInput.value.trim());
+                message.textContent = "接続設定を保存しました。";
+            });
+
+            appForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const form = new FormData(appForm);
+                const payload = Object.fromEntries(form.entries());
+                payload.sortOrder = Number(payload.sortOrder || 0);
+
+                try {
+                    await apiRequest("/admin/apps", {
+                        method: "POST",
+                        body: JSON.stringify(payload)
+                    });
+                    message.textContent = "保存しました。";
+                } catch (error) {
+                    message.textContent = error.message;
+                }
+            });
+
+            document.getElementById("load-apps").addEventListener("click", async () => {
+                try {
+                    const apps = await apiRequest("/apps", { method: "GET" });
+                    list.innerHTML = apps.map((app) => `
+                        <button class="admin-app-button" type="button" data-app='${JSON.stringify(app).replace(/'/g, "&#39;")}'>
+                            <strong>${app.title}</strong>
+                            <span>${app.id}</span>
+                        </button>
+                    `).join("");
+                } catch (error) {
+                    message.textContent = error.message;
+                }
+            });
+
+            list.addEventListener("click", (event) => {
+                const button = event.target.closest("[data-app]");
+                if (!button) return;
+                const app = JSON.parse(button.dataset.app);
+                for (const [key, value] of Object.entries(app)) {
+                    const fieldName = key === "sort_order" ? "sortOrder" : key;
+                    const field = appForm.elements[fieldName];
+                    if (field) field.value = value ?? "";
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

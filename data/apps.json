@@ -1,0 +1,93 @@
+[
+  {
+    "id": "para-roll-world",
+    "title": "Para Roll World",
+    "category": "app",
+    "status": "public",
+    "badge": "Web App",
+    "stack": "Public",
+    "image": "./img/para-roll.png",
+    "url": "https://para-roll-world.isikoro.dev/",
+    "summary": "独自ドメインで公開しているWebアプリ。いったん完成扱いとして公開しています。",
+    "detail": "ブラウザからすぐ触れるWebアプリとして公開している作品です。細かい改善は続けつつ、ひとまず公開済みのアプリとして扱っています。",
+    "highlights": ["公開済み", "独自ドメイン", "Webアプリ"]
+  },
+  {
+    "id": "timebox",
+    "title": "Timebox",
+    "category": "app",
+    "status": "public",
+    "badge": "Web App",
+    "stack": "React / TypeScript",
+    "image": "./img/timebox.png",
+    "url": "https://isikoro1.github.io/timebox/",
+    "summary": "予定や作業時間をタイムボックスとして扱うスケジュール管理アプリです。",
+    "detail": "時間をブロックとして配置し、予定や作業時間を見える形で管理するためのアプリです。日々使う画面として、操作しやすさと視認性を重視しています。",
+    "highlights": ["React", "TypeScript", "スケジュール管理"]
+  },
+  {
+    "id": "matrix-rain-simulator",
+    "title": "Matrix Rain Simulator",
+    "category": "app",
+    "status": "public",
+    "badge": "App",
+    "stack": "Public",
+    "image": "./img/matrix-rain-simulator.png",
+    "url": "https://tools.isikoro.dev/matrix-rain-simulator/",
+    "summary": "Matrix風のデジタルレイン表現を試すためのシミュレーター。文字や色、書き出し設定を調整できます。",
+    "detail": "Matrix風の文字が流れる画面を生成するツールです。文字セット、色、方向、サイズ、書き出し形式などを調整して、画像や動画素材として使える形を目指しています。",
+    "highlights": ["生成ツール", "PNG/GIF/動画書き出し", "ビジュアル表現"]
+  },
+  {
+    "id": "marude-note",
+    "title": "marude-note",
+    "category": "app",
+    "status": "development",
+    "badge": "In Development",
+    "stack": "Notebook App",
+    "image": "./img/marude-note.png",
+    "url": "https://isikoro1.github.io/marude-note/",
+    "summary": "ブラウザで使えるノートアプリ。書く、整理する、扱いやすく残す体験を整えながら開発中です。",
+    "detail": "ブラウザ上でノートを書き、整理し、後から扱いやすく残すためのアプリです。まだ開発中として、使い勝手を見ながら改善しています。",
+    "highlights": ["開発中", "ノート", "ブラウザアプリ"]
+  },
+  {
+    "id": "matrix-rain-quiz",
+    "title": "Matrix Rain Quiz",
+    "category": "game",
+    "status": "public",
+    "badge": "Game",
+    "stack": "Public",
+    "image": "./img/matrix-rain-quiz.png",
+    "url": "https://matrix-rain-quiz.isikoro.dev/",
+    "summary": "Matrix風の表現を取り入れたクイズアプリ。カタカナを読み取り、隠された単語を当てます。",
+    "detail": "Matrix風に流れるカタカナの中から単語を読み取り、答えを当てるクイズゲームです。見た目の演出と読み取りやすさのバランスを調整しています。",
+    "highlights": ["クイズ", "デジタルレイン", "ゲーム"]
+  },
+  {
+    "id": "nekotower",
+    "title": "nekotower",
+    "category": "game",
+    "status": "public",
+    "badge": "Game",
+    "stack": "Public",
+    "image": "./img/nekotower.png",
+    "url": "https://nekotower.isikoro.dev/",
+    "summary": "積み上がるねこを眺めながら遊べるWebアプリです。",
+    "detail": "ねこを積み上げて遊ぶWebゲームです。見た目の楽しさと、触ってすぐ分かる操作感を重視して作っています。",
+    "highlights": ["Webゲーム", "物理っぽい遊び", "公開済み"]
+  },
+  {
+    "id": "youtube-shorts-hider",
+    "title": "YouTube Shorts Hider",
+    "category": "tool",
+    "status": "public",
+    "badge": "Browser Extension",
+    "stack": "GitHub",
+    "image": "",
+    "url": "https://github.com/isikoro1/youtube-shorts-hider",
+    "summary": "公開ページですぐ使うタイプではなく、GitHubから導入するブラウザ拡張です。",
+    "detail": "YouTube Shortsを非表示にするためのブラウザ拡張です。Webアプリではなく、GitHubから導入して使うツールとして扱っています。",
+    "highlights": ["ブラウザ拡張", "GitHub", "ツール"]
+  }
+]

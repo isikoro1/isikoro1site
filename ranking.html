@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ランキング | isikoro.dev</title>
+    <meta name="description" content="isikoro.dev のアプリランキングページです。" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark site-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand brand-mark" href="./index.html">isikoro.dev</a>
+        </div>
+    </nav>
+
+    <main id="top">
+        <section class="section-block section-dark top-apps-section">
+            <div class="container">
+                <div class="section-heading center">
+                    <p class="section-kicker">RANKING</p>
+                    <h1 class="app-site-title">ランキング</h1>
+                    <p>表示、いいね、共有などのイベントを集計して並べる予定のページです。</p>
+                </div>
+
+                <div id="ranking-list" class="ranking-list">
+                    <article class="detail-panel">
+                        <h2>API接続待ち</h2>
+                        <p>Cloudflare Workers API を接続すると、ここにランキングが表示されます。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        (() => {
+            const API_BASE = window.ISIKORO_API_BASE || "";
+            const list = document.getElementById("ranking-list");
+
+            const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (char) => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;",
+                "'": "&#39;"
+            })[char]);
+
+            const load = async () => {
+                if (!API_BASE) return;
+
+                const [appsResponse, rankingResponse] = await Promise.all([
+                    fetch("./data/apps.json"),
+                    fetch(`${API_BASE}/rankings`)
+                ]);
+                const apps = await appsResponse.json();
+                const rankings = await rankingResponse.json();
+                const byId = new Map(apps.map((app) => [app.id, app]));
+
+                list.innerHTML = rankings.map((rank, index) => {
+                    const app = byId.get(rank.app_id) || { title: rank.app_id, summary: "" };
+                    return `
+                        <a class="ranking-item" href="./app-detail.html?id=${encodeURIComponent(rank.app_id)}">
+                            <strong>${index + 1}. ${escapeHtml(app.title)}</strong>
+                            <span>${Number(rank.score || 0).toLocaleString("ja-JP")} events</span>
+                            <small>${escapeHtml(app.summary)}</small>
+                        </a>
+                    `;
+                }).join("") || `
+                    <article class="detail-panel">
+                        <h2>まだデータがありません</h2>
+                        <p>表示やいいねが記録されるとランキングに反映されます。</p>
+                    </article>
+                `;
+            };
+
+            load().catch(() => {});
+        })();
+    </script>
+</body>
+
+</html>
