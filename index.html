@@ -55,6 +55,8 @@
 
                 <div class="store-tabs" role="tablist" aria-label="作品カテゴリ">
                     <button class="store-tab is-active" type="button" role="tab" aria-selected="true"
+                        data-tab-target="recommended-panel">おすすめ</button>
+                    <button class="store-tab" type="button" role="tab" aria-selected="false"
                         data-tab-target="apps-panel">アプリ</button>
                     <button class="store-tab" type="button" role="tab" aria-selected="false"
                         data-tab-target="games-panel">ゲーム</button>
@@ -62,7 +64,58 @@
                         data-tab-target="tools-panel">ツール</button>
                 </div>
 
-                <div class="tab-panel is-active" id="apps-panel" role="tabpanel">
+                <div class="tab-panel is-active" id="recommended-panel" role="tabpanel">
+                    <div class="works-subheading">
+                        <p class="section-kicker">RECOMMENDED</p>
+                        <h2>おすすめ</h2>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-xl-4">
+                            <article class="work-card">
+                                <a href="https://nekotower.isikoro.dev/" target="_blank" rel="noopener noreferrer"
+                                    class="work-thumb-link">
+                                    <img src="./img/nekotower.png" alt="nekotowerの画面" class="work-thumb" />
+                                </a>
+                                <div class="work-body">
+                                    <div class="work-meta">
+                                        <span class="work-badge">Game</span>
+                                        <span class="work-stack">Public</span>
+                                    </div>
+                                    <h3>nekotower</h3>
+                                    <p>積み上がるねこを眺めながら遊べるWebアプリです。</p>
+                                    <div class="work-links">
+                                        <a href="https://nekotower.isikoro.dev/" target="_blank"
+                                            rel="noopener noreferrer">公開ページ</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <article class="work-card">
+                                <a href="https://matrix-rain-quiz.isikoro.dev/" target="_blank" rel="noopener noreferrer"
+                                    class="work-thumb-link">
+                                    <img src="./img/matrix-rain-quiz.png" alt="Matrix Rain Quizの画面" class="work-thumb" />
+                                </a>
+                                <div class="work-body">
+                                    <div class="work-meta">
+                                        <span class="work-badge">Game</span>
+                                        <span class="work-stack">Public</span>
+                                    </div>
+                                    <h3>Matrix Rain Quiz</h3>
+                                    <p>Matrix風の表現を取り入れたクイズアプリ。カタカナを読み取り、隠された単語を当てます。</p>
+                                    <div class="work-links">
+                                        <a href="https://matrix-rain-quiz.isikoro.dev/" target="_blank"
+                                            rel="noopener noreferrer">公開ページ</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="apps-panel" role="tabpanel" hidden>
                     <div class="works-subheading">
                         <p class="section-kicker">APPS</p>
                         <h2>アプリ一覧</h2>
