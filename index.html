@@ -49,6 +49,8 @@
                     <button class="store-tab" type="button" role="tab" aria-selected="false"
                         data-tab-target="apps-panel">アプリ</button>
                     <button class="store-tab" type="button" role="tab" aria-selected="false"
+                        data-tab-target="websites-panel">Webサイト</button>
+                    <button class="store-tab" type="button" role="tab" aria-selected="false"
                         data-tab-target="games-panel">ゲーム</button>
                     <button class="store-tab" type="button" role="tab" aria-selected="false"
                         data-tab-target="tools-panel">ツール</button>
@@ -207,6 +209,57 @@
                     <p class="archive-link">
                         <a href="./archive.html">過去に作ったアプリはこちら</a>
                     </p>
+                </div>
+
+                <div class="tab-panel" id="websites-panel" role="tabpanel" hidden>
+                    <div class="works-subheading">
+                        <p class="section-kicker">WEBSITES</p>
+                        <h2>Webサイト一覧</h2>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-xl-4">
+                            <article class="work-card">
+                                <a href="https://isikoro1.github.io/isikoro-note/" target="_blank"
+                                    rel="noopener noreferrer" class="work-thumb-link work-placeholder note-theme">
+                                    <span>石ころノート</span>
+                                </a>
+                                <div class="work-body">
+                                    <div class="work-meta">
+                                        <span class="work-badge">Website</span>
+                                        <span class="work-stack">Astro / TypeScript</span>
+                                    </div>
+                                    <h3>石ころノート</h3>
+                                    <p>技術用語や学習内容を、階層と相互リンクで整理しているナレッジサイトです。</p>
+                                    <div class="work-links">
+                                        <a href="https://isikoro1.github.io/isikoro-note/" target="_blank"
+                                            rel="noopener noreferrer">公開ページ</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <article class="work-card">
+                                <a href="https://para-roll-world.isikoro.dev/" target="_blank" rel="noopener noreferrer"
+                                    class="work-thumb-link">
+                                    <img src="./img/para-roll.png" alt="Para Roll Worldの画面" class="work-thumb" />
+                                </a>
+                                <div class="work-body">
+                                    <div class="work-meta">
+                                        <span class="work-badge">Website</span>
+                                        <span class="work-stack">React / TypeScript</span>
+                                    </div>
+                                    <h3>Para Roll World</h3>
+                                    <p>独自ドメインで公開しているWebサイト。いったん完成扱いとして公開しています。</p>
+                                    <div class="work-links">
+                                        <a href="https://para-roll-world.isikoro.dev/" target="_blank"
+                                            rel="noopener noreferrer">公開ページ</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="tab-panel" id="games-panel" role="tabpanel" hidden>
